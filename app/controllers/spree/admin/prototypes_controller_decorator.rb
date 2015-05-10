@@ -1,3 +1,3 @@
 Spree::Admin::PrototypesController.class_eval do
-    include OwnedController
+    include DomainedController
 end

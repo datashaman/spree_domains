@@ -1,3 +1,3 @@
 Spree::User.class_eval do
-    include OwnedModel
+    include DomainedModel
 end

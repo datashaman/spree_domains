@@ -1,43 +1,33 @@
 require 'active_support/concern'
 
-module OwnedController
+module DomainedController
     extend ActiveSupport::Concern
     
     included do
-        before_action :check_owner, only: [ :show, :edit, :update, :destroy ]
-        before_action :set_owner, only: [ :create, :update ]
+        before_action :check_domain, only: [ :show, :edit, :update, :destroy ]
+        before_action :set_domain, only: [ :create, :update ]
     end
 
-    def check_owner
-        return if spree_current_user.has_spree_role?(:admin)
-
-        if spree_current_user.has_spree_role?(:owner)
-            unless @object.owner == spree_current_user
-                flash[:error] = 'You are not the owner of the resource'
-                redirect_to action: :index
-            end
+    def check_domain
+        unless @object.domain == current_domain.id
+            flash[:error] = 'This is not the resource you\'re looking for'
+            redirect_to action: :index
         end
     end
 
     def collection
-        return super if spree_current_user.has_spree_role? :admin
-
-        if spree_current_user.has_spree_role? :owner
-            super.where :owner_id => spree_current_user.id
-        else
-            super
-        end
+        super.where :domain_id => current_domain.id
     end
 
-    def set_owner
-        @object.owner = spree_current_user if spree_current_user.has_spree_role? :owner
+    def set_domain
+        @object.domain = current_domain.id
     end
 end
 
-module OwnedModel
+module DomainedModel
     extend ActiveSupport::Concern
 
     included do
-        belongs_to :owner, :class_name => 'User'
+        belongs_to :domain
     end
 end

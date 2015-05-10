@@ -1,3 +1,3 @@
 Spree::Taxon.class_eval do
-    include OwnedModel
+    include DomainedModel
 end

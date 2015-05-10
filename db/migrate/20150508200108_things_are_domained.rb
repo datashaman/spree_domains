@@ -1,4 +1,4 @@
-class ThingsAreOwned < ActiveRecord::Migration
+class ThingsAreDomained < ActiveRecord::Migration
   def change
     tables = [
         :spree_orders,
@@ -17,7 +17,7 @@ class ThingsAreOwned < ActiveRecord::Migration
     ]
 
     tables.each do |table|
-        add_column table, :owner_id, :integer, :null => true, :default => nil
+        add_column table, :domain_id, :integer, :null => true, :default => nil
     end
   end
 end

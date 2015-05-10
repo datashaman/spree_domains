@@ -20,7 +20,12 @@ module DomainedController
     end
 
     def set_domain
-        @object.domain = current_domain.id
+        @object.domain = current_domain
+    end
+
+    def current_domain
+        domain_url = request.host_with_port
+        Spree::Domain.find_by_url_and_enabled(domain_url, true)
     end
 end
 
@@ -28,6 +33,6 @@ module DomainedModel
     extend ActiveSupport::Concern
 
     included do
-        belongs_to :domain
+        belongs_to :domain, :class_name => 'Spree::Domain'
     end
 end

@@ -1,14 +1,14 @@
 # encoding: UTF-8
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
-  s.name        = 'spree_geocoder'
-  s.version     = '3.0.1'
-  s.summary     = 'TODO: Add gem summary here'
-  s.description = 'TODO: Add (optional) gem description here'
+  s.name        = 'spree_domains'
+  s.version     = '0.1.0'
+  s.summary     = 'Multi-tenant using domains from the URL.'
+  s.description = 'Basic multi-tenant where the domain is stored with many Spree objects, creating separate views of the data.'
   s.required_ruby_version = '>= 2.0.0'
 
-  # s.author    = 'You'
-  # s.email     = 'you@example.com'
+  s.author    = 'Marlin Forbes'
+  s.email     = 'marlinf@datashaman.com'
   # s.homepage  = 'http://www.spreecommerce.com'
 
   #s.files       = `git ls-files`.split("\n")
@@ -17,7 +17,6 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_core', '~> 3.0.1'
-  s.add_dependency 'geocoder', '~> 1.2.8'
 
   s.add_development_dependency 'capybara', '~> 2.4'
   s.add_development_dependency 'coffee-rails'

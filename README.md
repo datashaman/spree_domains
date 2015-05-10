@@ -1,7 +1,7 @@
-SpreeGeocoder
+Spree Domains
 =============
 
-Introduction goes here.
+Basic multi-tenant plugin for Spree using URL domain to separate data.
 
 Installation
 ------------
@@ -9,14 +9,14 @@ Installation
 Add spree_geocoder to your Gemfile:
 
 ```ruby
-gem 'spree_geocoder'
+gem 'spree_domains'
 ```
 
 Bundle your dependencies and run the installation generator:
 
 ```shell
 bundle
-bundle exec rails g spree_geocoder:install
+bundle exec rails g spree_domains:install
 ```
 
 Testing
@@ -33,7 +33,7 @@ When testing your applications integration with this extension you may use it's 
 Simply add this require statement to your spec_helper:
 
 ```ruby
-require 'spree_geocoder/factories'
+require 'spree_domains/factories'
 ```
 
-Copyright (c) 2015 [name of extension creator], released under the New BSD License
+Copyright (c) 2015 Marlin Forbes (datashaman), released under the New BSD License

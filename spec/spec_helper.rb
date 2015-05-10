@@ -30,8 +30,8 @@ require 'spree/testing_support/controller_requests'
 require 'spree/testing_support/factories'
 require 'spree/testing_support/url_helpers'
 
-# Requires factories defined in lib/spree_geocoder/factories.rb
-require 'spree_geocoder/factories'
+# Requires factories defined in lib/spree_domains/factories.rb
+require 'spree_domains/factories'
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods

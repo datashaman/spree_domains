@@ -6,7 +6,7 @@ Basic multi-tenant plugin for Spree using URL domain to separate data.
 Installation
 ------------
 
-Add spree_geocoder to your Gemfile:
+Add spree_domains to your Gemfile:
 
 ```ruby
 gem 'spree_domains'
